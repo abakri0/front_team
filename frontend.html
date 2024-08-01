@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل مستخدم جديد</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #f2f2f2;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #CDD2C1;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 44px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .login_Img {
+            justify-content: center;
+            object-fit: cover;
+            object-position: top;
+            clip-path: inset(35% 0 0 0);
+            margin-top: -204px;
+        }
+        .container h1 {
+            text-align: center;
+            color: #576532;
+            font-size: 36px;
+        }
+        .container label {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            display: block;
+            margin-top: 10px;
+            font-size: 15px;
+            color: #FFFFFF;
+            font-weight: 900;
+        }
+        .container input {
+            height: 36px;
+            color: #D9D9D9;
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #D9D9D9;
+        }
+        .container button {
+            margin-right: auto;
+            margin-left: auto;
+            padding: 10px 24px;
+            margin-top: 20px;
+            background: linear-gradient(180deg, #576532 0%, #7A8C31 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        #email {
+            background-color: #4B5817;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="login_Img" src="https://s3-alpha-sig.figma.com/img/c722/3e63/3b254c396983419926c3441a0d012e6f?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aYbLonOMfpe-eSBpY54YfBcm3nFJcrQDhopwcECh~WdO-b3Gasvwtj~AKiFOI75F~0PiO5ctsYqZcuGa7oE2frK5eOk~Xvc-0kotdms5sQI5Xzh3GGo-HPAD1J7zu2KVaziUbALE4Wtr3xYAHojx3gsu~fTFcoZzkVF1W346~KOB9MLM4oKWzh4PhtDSpVoEqbArjiWbTm8It5cBG2tYMVv9BcCNvY8NesO9FGBHy9wxtDytd1n5CS2yB-JshExKTZ9zMNTG0C4JuArks25YdBuKcFulgNRqNw2sIqeS5v6iyTs0dt94CMXUzkIE-132CFB19tu4f25m~M8lVbSUow__" alt="login"/>
+        <h1>SIGN IN</h1>
+        <form id="registerForm" style="display: flex; flex-direction: column;">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">SIGN IN</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,26}$/;
+            
+            if (!passwordPattern.test(password)) {
+                alert('يجب أن تحتوي كلمة المرور على: \n- حروف إنجليزية فقط\n- حرف صغير واحد على الأقل\n- حرف كبير واحد على الأقل\n- رقم واحد على الأقل\n- رمز خاص واحد على الأقل (!@#$%^&*)\n- لا تقل عن 8 خانات ولا تزيد عن 26 خانة');
+                return false;
+            }
+            
+            this.submit();
+        });
+    </script>
+</body>
+</html>
